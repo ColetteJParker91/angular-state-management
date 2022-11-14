@@ -14,16 +14,10 @@ export const initialState: CustomerState = {
 
 export const customerReducer = createReducer(
   initialState,
-
-  on(
-    CustomerActions.addCustomer,
-
-    (state: CustomerState, { customer }) => ({
-      ...state,
-
-      customers: [...state.customers, customer],
-    })
-  )
+  on(CustomerActions.addCustomer, (state: CustomerState, { customer }) => ({
+    ...state,
+    customers: [...state.customers, customer],
+  }))
 );
 
 export function reducer(state: CustomerState | undefined, action: Action): any {
